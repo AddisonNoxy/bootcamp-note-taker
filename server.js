@@ -33,6 +33,23 @@ app.get('/api/notes', (req, res) => {
 app.post('/api/notes', (req, res) => {
     console.log(`${req.method} request received`);
     console.log(req.body);
+    
+    fs.readFile('./db/db.json', 'utf8', (err, data) => {
+        if (err) {
+            console.error(err);
+        } else {
+            const allNotes = JSON.parse(data);
+
+            allNotes.push(req.body);
+
+            fs.writeFile('./db/db.json',
+                JSON.stringify(allNotes, null, 4), (writeErr) => {
+                    writeErr
+                        ? console.error(writeErr)
+                        : console.info("Added your note!");
+                });
+        }
+    })
 
 })
 

@@ -38,9 +38,18 @@ app.post('/api/notes', (req, res) => {
         if (err) {
             console.error(err);
         } else {
+
+            const { title, text } = req.body; //separate note contents into unique variables
+
             const allNotes = JSON.parse(data);
 
-            allNotes.push(req.body);
+            const newNote = {
+                title,
+                text,
+                id: uuidv4() //apply a unique id to the note
+            }
+
+            allNotes.push(newNote);
 
             fs.writeFile('./db/db.json',
                 JSON.stringify(allNotes, null, 4), (writeErr) => {

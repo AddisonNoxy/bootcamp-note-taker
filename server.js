@@ -40,7 +40,6 @@ app.post('/api/notes', (req, res) => {
         } else {
 
             const { title, text } = req.body; //separate note contents into unique variables
-
             const allNotes = JSON.parse(data);
 
             const newNote = {
@@ -57,6 +56,14 @@ app.post('/api/notes', (req, res) => {
                         ? console.error(writeErr)
                         : console.info("Added your note!");
                 });
+
+            const response = {
+                status: 'success',
+                body: newNote
+            }
+
+            console.log(response);
+            res.status(201).json(response);
         }
     })
 

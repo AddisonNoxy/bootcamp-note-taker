@@ -2,7 +2,7 @@
 
 ## Description
 
-This project connects a pre-established front end framework for note taking, to a custom back-end which allows for saving the notes and assigning them a unique ID for later viewing. A later version of the finished application would also allow for the user to delete notes.
+[This project](https://peaceful-sea-14782.herokuapp.com/) connects a pre-established front end framework for note taking, to a custom back-end which allows for saving the notes and assigning them a unique ID for later viewing. A later version of the finished application would also allow for the user to delete notes.
 
 ![Note taker application](./public/assets/deployment.PNG)
 
